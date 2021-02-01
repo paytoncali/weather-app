@@ -10,3 +10,13 @@ header {
     padding: 15px;
 }
 
+aside {
+    border: solid;
+    border-color: grey;
+    border-width: 1px;
+}
+
+#searchcontainer {
+    height: 500px;
+    margin-top: 10px;
+}
