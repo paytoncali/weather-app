@@ -14,9 +14,18 @@ aside {
     border: solid;
     border-color: grey;
     border-width: 1px;
+    padding: 15px;
 }
 
 #searchcontainer {
     height: 500px;
     margin-top: 10px;
+}
+
+.currentcityweather {
+    border:solid;
+    border-color: grey;
+    border-width: 1px;
+    margin-left: 10px;
+    padding: 15px;
 }
