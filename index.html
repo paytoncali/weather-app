@@ -19,45 +19,56 @@
     <div class="container">
         <div class="row" id="searchcontainer">
             <aside class="col-3">
-                <p>Search for a City:<p>
+                <p>Search for a City:
+                <p>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="search" aria-label="Search" id="search">
-                    <button class="btn btn-outline-primary" type="submit" id="searchbtn"><i class="fas fa-search"></i></button>
+                    <button class="btn btn-outline-primary" type="submit" id="searchbtn"><i
+                            class="fas fa-search"></i></button>
                 </form>
                 <div class="row" id="previouscity"></div>
             </aside>
             <main class="col-9">
                 <div class="row currentcityweather">
-                    <div class="city"></div><div class="weathericon"></div>
+                    <div class="city"></div>
+                    <div class="weathericon"></div>
                     <div class="temp">Temperature: </div>
                     <div class="humidity">Humidity: </div>
                     <div class="windspeed">Wind Speed: </div>
-                    <div class="uv">UV Index: </div>
+                    <div class="uv">UV Index:</div>
                 </div>
                 <div class="row forecast">5-Day Forecast:</div>
-                <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                    <div class="card-body">
-                        <p class=card-text id=day1></p>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                    <div class="card-body">
-                        <p class=card-text id=day2></p>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                    <div class="card-body">
-                        <p class=card-text id=day3></p>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                    <div class="card-body">
-                        <p class=card-text id=day4></p>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3" style="max-width: 8rem;">
-                    <div class="card-body">
-                        <p class=card-text id=day5></p>
+                    <div class="card-group">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                            <div class="card-body">
+                                <div class="dateone"></div>
+                                <p class="card-text" id="one"></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                            <div class="card-body">
+                                <div class="datetwo"></div>
+                                <p class="card-text" id="two"></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                            <div class="card-body">
+                                <div class="datethree"></div>
+                                <p class="card-text" id="three"></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                            <div class="card-body">
+                                <div class="datefour"></div>
+                                <p class="card-text" id="four"></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                            <div class="card-body">
+                                <div class="datefive"></div>
+                                <p class="card-text" id="five"></p>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </main>
