@@ -44,17 +44,17 @@ function currentUV (lat, lon) {
     })
     .then(function (data) {
         // console.log(data);
-        // var uvIndex = document.querySelector(".uv");
+        var uvIndex = document.querySelector(".uv");
         var setColor = document.createElement("div")
 
-        setColor.textContent = data.current.uvi;
+        uvIndex.textContent = "Index" + data.current.uvi;
         // if statement here
         if (data.current.uvi < 2) {
-            setColor.style.backgroundColor = "green";
+            uvIndex.style.backgroundColor = "green";
         } if (data.current.uvi == 3) {
-            setColor.style.backgroundColor = "yellow";
+            uvIndex.style.backgroundColor = "yellow";
         } if (data.current.uvi > 4) {
-            setColor.style.backgroundColor = "red";
+            uvIndex.style.backgroundColor = "red";
         }
         fiveDayForecast(lat, lon)
     });
@@ -68,32 +68,40 @@ function fiveDayForecast (lat, lon) {
     })
     .then(function (data) {
         console.log(data);
-        var oneDayEl = document.createElement("img");
-        var secondDayEl = document.createElement("img");
-        var thirdDayEl = document.createElement("img");
-        var fourDayEl = document.createElement("img");
-        var fiveDayEl = document.createElement("img");
 
-        var firstDayIconEl = document.querySelector(".dateone");
-        var secondDayIconEl = document.querySelector(".datetwo");
-        var thirdDayIconEl = document.querySelector(".datethree");
-        var fourthDayIconEl = document.querySelector(".datefour");
-        var fifthDayIconEl = document.querySelector(".datefive");
+        for (i=1; i<6; i++) {
+        var imgIcon = document.createElement("img");
+        var Icon = document.querySelector("#" + i);
 
-        oneDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + "@2x.png");
-        firstDayIconEl.append(oneDayEl);
+        imgIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png");
+        imgIcon.append(Icon);
+        }
+        // var oneDayEl = document.createElement("img");
+        // var secondDayEl = document.createElement("img");
+        // var thirdDayEl = document.createElement("img");
+        // var fourDayEl = document.createElement("img");
+        // var fiveDayEl = document.createElement("img");
 
-        secondDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[2].weather[0].icon + "@2x.png");
-        secondDayIconEl.append(secondDayEl);
+        // var firstDayIconEl = document.querySelector(".dateone");
+        // var secondDayIconEl = document.querySelector(".datetwo");
+        // var thirdDayIconEl = document.querySelector(".datethree");
+        // var fourthDayIconEl = document.querySelector(".datefour");
+        // var fifthDayIconEl = document.querySelector(".datefive");
 
-        thirdDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[3].weather[0].icon + "@2x.png");
-        thirdDayIconEl.append(thirdDayEl);
+        // oneDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + "@2x.png");
+        // firstDayIconEl.append(oneDayEl);
 
-        fourDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[4].weather[0].icon + "@2x.png");
-        fourthDayIconEl.append(fourDayEl);
+        // secondDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[2].weather[0].icon + "@2x.png");
+        // secondDayIconEl.append(secondDayEl);
 
-        fiveDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[5].weather[0].icon + "@2x.png");
-        fifthDayIconEl.append(fiveDayEl);
+        // thirdDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[3].weather[0].icon + "@2x.png");
+        // thirdDayIconEl.append(thirdDayEl);
+
+        // fourDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[4].weather[0].icon + "@2x.png");
+        // fourthDayIconEl.append(fourDayEl);
+
+        // fiveDayEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[5].weather[0].icon + "@2x.png");
+        // fifthDayIconEl.append(fiveDayEl);
         // for (i=1; i < 6; i++) {
 
 
