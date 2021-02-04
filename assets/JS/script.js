@@ -20,7 +20,7 @@ function currentApi(event) {
             var dateForToday = new Date(data.dt*1000).toLocaleDateString("en-US");
 
             console.log(data)
-            weatherIconEl.src = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+            weatherIconEl.src = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
             weatherIconEl.style = "width: 45px; height: 45px; display: inline-block;";
             cityName.textContent = data.name + " " + dateForToday;
 
@@ -42,7 +42,7 @@ function currentUV(lat, lon) {
         .then(function (data) {
             var uvIndex = document.querySelector(".uv");
 
-            uvIndex.textContent = "Index" + data.current.uvi;
+            uvIndex.textContent = "UV Index" + data.current.uvi;
             if (data.current.uvi < 2) {
                 uvIndex.style.backgroundColor = "green";
             } if (data.current.uvi == 3) {
@@ -69,7 +69,7 @@ function fiveDayForecast(lat, lon) {
                 console.log(newDate);
                 Icon.textContent = newDate;
 
-                imgIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png");
+                imgIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png");
                 imgIcon.style = "width: 45px; height: 45px; display: inline-block;"
                 Icon.append(imgIcon);
 
