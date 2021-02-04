@@ -1,5 +1,7 @@
 var currentCityApi = document.querySelector("#search");
 var searchBtn = document.querySelector("#searchbtn");
+var iconEl; 
+var pastCity = "";
 
 function currentApi(event) {
     event.preventDefault();
@@ -8,39 +10,30 @@ function currentApi(event) {
             return response.json();
         })
         .then(function (data) {
-            // empty divs
             var temp = document.querySelector(".temp");
             var humidity = document.querySelector(".humidity");
             var windSpeed = document.querySelector(".windspeed");
             var cityName = document.querySelector(".city");
-            var iconEl = document.createElement("img");
             var weatherIconEl = document.querySelector(".weathericon");
             var lat = data.coord.lat;
             var lon = data.coord.lon;
+            var dateForToday = new Date(data.dt*1000).toLocaleDateString("en-US");
 
             console.log(data)
-            iconEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png");
-            iconEl.style = "width: 45px; height: 45px; display: inline-block;";
-            weatherIconEl.append(iconEl);
-            cityName.textContent = data.name;
-            // cityName.innerHTML = `${data.name} <span>adsfsdf</span>`;
+            weatherIconEl.src = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+            weatherIconEl.style = "width: 45px; height: 45px; display: inline-block;";
+            cityName.textContent = data.name + " " + dateForToday;
+
             temp.textContent = "Temperature: " + data.main.temp + "°F";
             humidity.textContent = "Humidity: " + data.main.humidity + "%";
             windSpeed.textContent = "Wind Speed: " + data.wind.speed + " MPH";
 
-            localStorage.setItem("SearchedCity", JSON.stringify([currentCityApi.value]));
+            localStorage.setItem("SearchedCity", currentCityApi.value);
 
             currentUV(lat, lon)
-
-
         });
 }
 
-// function displayDate() { 
-//     var mseconds = (date * 1000);
-//     var APIdate = new Date(mseconds);
-//     var formatDate = dataObject.to
-// }
 function currentUV(lat, lon) {
     fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,daily,alerts&units=imperial&appid=73764a83501606e04b74a8e0281a654b")
         .then(function (response) {
@@ -72,14 +65,13 @@ function fiveDayForecast(lat, lon) {
                 var imgIcon = document.createElement("img")
                 var Icon = document.getElementById(i);
 
+                var newDate = new Date(data.daily[i].dt*1000).toLocaleDateString("en-US");
+                console.log(newDate);
+                Icon.textContent = newDate;
+
                 imgIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png");
                 imgIcon.style = "width: 45px; height: 45px; display: inline-block;"
                 Icon.append(imgIcon);
-
-                // trying to figre out date - this is where you left off
-                // var dateFormat = new Date(data.daily[i].dt*1000).toLocaleDateString('en-US');
-
-
 
                 var weatherDiv = document.createElement("div");
                 weatherDiv.innerHTML = "Temp: " + data.daily[i].temp.day + "°F" + " " + "Humidity: " + data.daily[i].humidity + "%";
@@ -96,19 +88,22 @@ function init() {
     // parse array from ls
     // for each item in the array we need a button 
     // each button needs an event listener
-    var searchedCities = JSON.parse(localStorage.getItem("SearchedCity"));
+    var searchedCityPlaceHolder = document.querySelector("#previouscity");
+    var searchedCities = localStorage.getItem("SearchedCity");
+    // var searchedCities = JSON.parse(localStorage.getItem("SearchedCity"));
     console.log(searchedCities);
+    
+    searchedCityPlaceHolder.append(searchedCities);
+    
+    // for (i=9; i < 17; i++); {
+    //     var citiesEl = document.getElementById("previouscity");
+    //     var cityButtons = document.getElementById(i);
 
-    for (i=0; i < 9; i++); {
-        var citiesEl = getElementById("previouscity");
-
-
-    }
-
+    //     citiesEl.append(cityButtons);
 
     searchBtn.addEventListener("click", currentApi, currentUV, fiveDayForecast)
 }
 
 
 
-init()
+init();
