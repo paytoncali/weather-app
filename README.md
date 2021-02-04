@@ -10,7 +10,9 @@ My next step was to create another function for my five day forecast. I fetched 
 The use of this program is to show you the current day weather and a 5 day forecast of a city you search. 
 
 
-[weather dashboard.pdf](https://github.com/paytoncali/weather-app/files/5923453/weather.dashboard.pdf)
+![weatherdashboard](https://user-images.githubusercontent.com/74576982/106850500-39ff2d80-667a-11eb-8036-45ad43986aba.gif)
 
 https://github.com/paytoncali/weather-app.git
+
+
 https://paytoncali.github.io/weather-app/
