@@ -90,20 +90,12 @@ function init() {
     // each button needs an event listener
     var searchedCityPlaceHolder = document.querySelector("#previouscity");
     var searchedCities = localStorage.getItem("SearchedCity");
-    // var searchedCities = JSON.parse(localStorage.getItem("SearchedCity"));
     console.log(searchedCities);
     
     searchedCityPlaceHolder.append(searchedCities);
     
-    // for (i=9; i < 17; i++); {
-    //     var citiesEl = document.getElementById("previouscity");
-    //     var cityButtons = document.getElementById(i);
-
-    //     citiesEl.append(cityButtons);
 
     searchBtn.addEventListener("click", currentApi, currentUV, fiveDayForecast)
 }
-
-
 
 init();
