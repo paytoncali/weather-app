@@ -19,53 +19,51 @@
     <div class="container">
         <div class="row" id="searchcontainer">
             <aside class="col-3">
-                <p>Search for a City:
-                <p>
+                <h4>Search for a City:</h4>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="search" aria-label="Search" id="search">
-                    <button class="btn btn-outline-primary" type="submit" id="searchbtn"><i
-                            class="fas fa-search"></i></button>
+                    <button class="btn btn-outline-primary" type="submit" id="searchbtn"><i class="fas fa-search"></i></button>
                 </form>
                 <div class="row" id="previouscity"></div>
             </aside>
             <main class="col-9">
                 <div class="row currentcityweather">
-                    <div class="city"></div>
-                    <div class="weathericon"></div>
-                    <div class="temp">Temperature: </div>
-                    <div class="humidity">Humidity: </div>
-                    <div class="windspeed">Wind Speed: </div>
-                    <div class="uv">UV Index:</div>
+                    <div class="nameicon"><h2 class="city"></h2>
+                    <div class="weathericon"></div></div>
+                    <div class="temp"></div>
+                    <div class="humidity"></div>
+                    <div class="windspeed"></div>
+                    <div class="uv"></div>
                 </div>
-                <div class="row forecast">5-Day Forecast:</div>
-                    <div class="card-group">
-                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                <h3 class="row forecast", hidden>5-Day Forecast:</h3>
+                    <div class="card-group", hidden>
+                        <div class="card text-white bg-primary mb-3 rounded" style="max-width: 10rem;">
                             <div class="card-body">
-                                <div class="dateone"></div>
+                                <div class="date"></div>
                                 <p class="card-text" id="1"></p>
                             </div>
                         </div>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                        <div class="card text-white bg-primary mb-3 rounded" style="max-width: 10rem;">
                             <div class="card-body">
-                                <div class="datetwo"></div>
+                                <div class="date"></div>
                                 <p class="card-text" id="2"></p>
                             </div>
                         </div>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                        <div class="card text-white bg-primary mb-3 rounded" style="max-width: 10rem;">
                             <div class="card-body">
-                                <div class="datethree"></div>
+                                <div class="date"></div>
                                 <p class="card-text" id="3"></p>
                             </div>
                         </div>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                        <div class="card text-white bg-primary mb-3 rounded" style="max-width: 10rem;">
                             <div class="card-body">
-                                <div class="datefour"></div>
+                                <div class="date"></div>
                                 <p class="card-text" id="4"></p>
                             </div>
                         </div>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+                        <div class="card text-white bg-primary mb-3 rounded" style="max-width: 10rem;">
                             <div class="card-body">
-                                <div class="datefive"></div>
+                                <div class="date"></div>
                                 <p class="card-text" id="5"></p>
                             </div>
                         </div> 
